@@ -1,0 +1,493 @@
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f3faf7;
+    color: #1a1f1d;
+    line-height: 1.6;
+}
+
+/* UTILITIES */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: .2s ease;
+}
+
+/* ============================= */
+/* HEADER — GLASS SAGE ELEGANT */
+/* ============================= */
+.header {
+    background: rgba(15, 118, 110, 0.35);   /* lebih soft */
+    backdrop-filter: blur(14px) saturate(140%);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+    box-shadow: 0px 6px 22px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+.header {
+    position: relative;
+}
+.header {
+    padding-right: 120px; /* memberi ruang untuk tombol login */
+}
+
+.login-top {
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    padding: 8px 16px;
+    background: #4A90E2;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.feature-card {
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* BRAND */
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+/* ICON — soft green glow */
+.icon-left {
+    width: 55px;
+    margin-right: 14px;
+    filter: invert(86%) sepia(10%) saturate(280%) hue-rotate(105deg)
+            brightness(98%) contrast(86%);
+    opacity: 0.96;
+    transition: .3s ease;
+}
+.icon-left:hover {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+}
+
+/* TEXT BRAND */
+.brand-text .name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #eafff6;
+    letter-spacing: .4px;
+}
+
+.brand-text .sub {
+    font-size: 13px;
+    color: #cffff0;
+    opacity: .9;
+    letter-spacing: 0.8px;
+}
+
+/* NAV */
+.nav a {
+    margin-left: 50px; /* sebelumnya 26px, sekarang lebih ke kanan */
+    color: #eafff6;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    opacity: 0.88;
+    transition: .28s ease;
+    position: relative;
+}
+
+
+.nav a[href*="login.php"],
+.nav a.btn-nav {
+    margin-left: 50px; /* geser ke kanan */
+}
+
+.nav a:hover {
+    color: #ffffff;
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.6);
+}
+
+.nav .btn-nav {
+    background: #eafff6;
+    color: #0e6e63;
+    padding: 7px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.nav .btn-nav:hover {
+    background: #ffffff;
+}
+
+.nav .logout {
+    color: #ffdedd;
+}
+
+/* ============================= */
+/* HERO — Soft Gradient Calm */
+/* ============================= */
+.hero {
+    text-align: center;
+    padding: 100px 0 140px;
+    margin-top: 25px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #0f766e, #169183, #7fcabd);
+    color: white;
+    box-shadow: 0px 12px 24px rgba(0,0,0,0.12);
+    transition: .3s ease;
+}
+
+.hero h2 {
+    font-size: 34px;
+    font-weight: 700;
+    width: 70%;
+    margin: auto;
+}
+
+.hero p {
+    margin-top: 18px;
+    font-size: 18px;
+    opacity: .92;
+}
+
+/* BUTTONS */
+.btn {
+    background: white;
+    color: #0f766e;
+    padding: 14px 30px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 12px;
+    font-weight: 600;
+    transition: .25s ease;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.09);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: #dffefa;
+}
+
+.btn.alt {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+.btn.alt:hover {
+    background: white;
+    color: #0f766e;
+}
+
+/* ============================= */
+/* FEATURES — Minimal Clean Cards */
+/* ============================= */
+.features {
+    display: flex;
+    gap: 28px;
+    margin-top: -60px;
+    padding-bottom: 40px;
+    align-items: stretch;
+}
+.features .card {
+    flex: 1;
+}
+
+
+.card {
+    background: #ffffff;
+    padding: 26px;
+    border-radius: 18px;
+    box-shadow: 0px 5px 14px rgba(0,0,0,0.08);
+    transition: .25s ease;
+    border: 1px solid #ebf5f2;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 14px 30px rgba(0,0,0,0.12);
+    border-color: #dff5ed;
+}
+
+.card h3 {
+    color: #0f766e;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+    list-style: disc;
+    margin-left: 22px;
+}
+
+/* ============================= */
+/* REVIEW SECTION */
+/* ============================= */
+.review {
+    background: #f5fffb;
+    padding: 14px;
+    margin-top: 12px;
+    border-radius: 10px;
+    border-left: 4px solid #0f766e;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.04);
+}
+
+.review .by {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #0f766e;
+    font-weight: 500;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+.footer {
+    margin-top: 50px;
+    padding: 24px 0;
+    background: #0f766e;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.icon-left {
+    width: 60px;
+    margin-right: 12px;
+    filter: invert(86%) sepia(12%) saturate(300%) hue-rotate(110deg)
+            drop-shadow(0px 0px 6px rgba(255,255,255,0.45));
+    opacity: 0.95;
+}
+
+/* ============================= */
+/* BUTTONS KHUSUS – Book & Test */
+/* ============================= */
+
+/* Tombol utama: Book Session */
+.btn-primary {
+    background: #0f766e;
+    color: #eafff6;
+    padding: 14px 36px;
+    border-radius: 14px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 4px 14px rgba(0, 120, 110, 0.28);
+    transition: .25s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    background: #129082;
+    box-shadow: 0 8px 22px rgba(0, 120, 110, 0.35);
+}
+
+
+/* Tombol kedua: Test Gratis */
+.btn-secondary {
+    background: #ffffff;
+    border: 2px solid #0f766e;
+    color: #0f766e;
+    padding: 14px 32px;
+    border-radius: 14px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    transition: .25s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-secondary:hover {
+    background: #eafff8;
+    border-color: #118072;
+    color: #0e6e63;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+
+/* ============================= */
+/* NAV — Modern Soft Menu */
+/* ============================= */
+
+.nav a {
+    margin-left: 26px;
+    color: #eafff6;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.6px;       /* lebih refined */
+    padding: 8px 14px;
+    border-radius: 12px;
+    opacity: 0.88;
+    transition: .28s ease;
+    position: relative;
+}
+
+/* Hover: soft glow + subtle underline line */
+.nav a:hover {
+    opacity: 1;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Underline efek calm */
+.nav a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0 0 6px rgba(255,255,255,0.7);
+}
+
+/* Tombol DAFTAR — tetap premium */
+.nav .btn-nav {
+    background: #eafff6;
+    color: #0e6e63 !important;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+    transition: .25s ease;
+}
+
+.nav .btn-nav:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+/* Logout — soft pastel warning */
+.nav .logout {
+    color: #ffdede !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav .logout:hover {
+    background: rgba(255, 230, 230, 0.14);
+    color: #ffc4c4 !important;
+    box-shadow: 0 0 10px rgba(255,200,200,0.35);
+    transform: translateY(-2px);
+}
+
+/* Tombol Ulasan */
+.btn-show-reviews {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #7a8f7d; /* pilihan warna sage yang lebih gelap */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.25s ease;
+    letter-spacing: 0.3px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.btn-show-reviews:hover {
+    background: #6b7e6d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.btn-show-reviews:active {
+    transform: scale(0.97);
+}
+.how-wrapper {
+    margin-top: 10px;
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.how-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0px 5px 14px rgba(0,0,0,0.07);
+    border: 1px solid #eef7f3;
+    transition: .25s ease;
+    text-align: center;
+}
+
+.how-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 14px 26px rgba(0,0,0,0.12);
+    border-color: #dff7ef;
+}
+
+.how-icon {
+    font-size: 28px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin: auto;
+    background: #e7f4ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0f766e;
+    margin-bottom: 12px;
+}
+
+.how-card h4 {
+    color: #0f766e;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.how-card p {
+    font-size: 14px;
+    color: #3d524c;
+    opacity: 0.9;
+    line-height: 1.45;
+}

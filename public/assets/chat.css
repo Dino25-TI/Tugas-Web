@@ -1,0 +1,90 @@
+body{margin:0;font-family:'Poppins',sans-serif;background:#f3faf7;}
+.container{max-width:700px;margin:50px auto;padding:0 20px;}
+.card.chat-card{background:#fff;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,0.08);}
+.chat-box{height:400px;overflow-y:auto;padding:10px;border:1px solid #cfe8e0;border-radius:12px;background:#f9fefc;margin-bottom:15px;}
+.chat-message{margin:8px 0;display:flex;flex-direction:column;max-width:80%;}
+.chat-message.user{align-self:flex-end;background:#0f766e;color:#fff;padding:10px 14px;border-radius:15px 15px 0 15px;}
+.chat-message.doctor { 
+    text-align: left; 
+    color: #222;   /* hitam */
+    background: #f1f0f0; /* opsional, biar mirip bubble sistem */
+    padding: 6px 10px;
+    border-radius: 12px;
+    max-width: 75%;
+}
+.msg-text{margin-bottom:3px;}
+.msg-time{font-size:10px;color:#888;align-self:flex-end;}
+#messageInput{width:calc(100% - 80px);padding:10px 12px;border-radius:12px;border:1px solid #cfe8e0;}
+#chatForm{display:flex;gap:8px;}
+#chatForm button{padding:10px 16px;border-radius:12px;border:none;background:#0f766e;color:#fff;cursor:pointer;transition:0.25s;}
+#chatForm button:hover{background:#0b5f59;}
+.btn{display:inline-block;padding:10px 16px;border-radius:12px;text-decoration:none;background:#0f766e;color:#fff;margin-top:10px;}
+.btn.alt{background:#f3faf7;color:#0f766e;border:1px solid #0f766e;}
+.btn.alt:hover{background:#0b5f59;color:#fff;}
+
+.chat-message.user { 
+    text-align: right; 
+    background: #DCF8C6; 
+    color: #222; 
+    padding: 6px 10px;
+    border-radius: 12px;
+    max-width: 75%;
+}
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.chat-row.user {
+    justify-content: flex-end; /* user ke kanan */
+}
+
+.chat-row.doctor {
+    justify-content: flex-start; /* dokter ke kiri */
+}
+
+.chat-message {
+    max-width: 60%;
+    padding: 8px 12px;
+    border-radius: 16px;
+    word-wrap: break-word;
+}
+
+.chat-message.user {
+    background: #DCF8C6;
+    color: #222;
+}
+
+.chat-message.doctor {
+    background: #f1f0f0;
+    color: #222;
+}
+
+.chat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.chat-avatar {
+    width: 50px;           /* sesuaikan ukuran */
+    height: 50px;
+    border-radius: 50%;    /* tetap bulat */
+    margin-right: 10px;
+    object-fit: cover;     /* pastikan foto memenuhi lingkaran */
+    object-position: top;  /* geser posisi foto ke atas supaya rambut kelihatan */
+}
+
+

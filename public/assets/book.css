@@ -1,0 +1,193 @@
+/* ===== BASE STYLE ===== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f3faf7;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #0f766e;
+    text-align: center;
+}
+
+/* ===== FORM ===== */
+form label {
+    display: block;
+    margin: 10px 0 6px;
+    font-weight: 600;
+    color: #1f3e39;
+    font-size: 15px;
+}
+
+select, input {
+    width: 100%;
+    padding: 14px 15px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #cfe8e0;
+    background: #f9fefc;
+    transition: 0.25s;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #0f766e;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    margin-top: 18px;
+    background: #0f766e;
+    color: white;
+    padding: 14px 18px;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #0b5f59;
+    transform: translateY(-2px);
+}
+
+/* ===== EXTRA POLISH ===== */
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+}
+
+input::placeholder {
+    color: #8cb7ac;
+}
+/* LABEL */
+form label {
+    display: block;
+    margin: 16px 0 6px;
+    font-weight: 600;
+    color: #155e58;
+    font-size: 15px;
+}
+
+.booking-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;      /* semua item full width sama */
+    max-width: 100%;  /* pastikan gak melebar */
+    margin-bottom: 15px; /* jarak antar kotak */
+}
+
+
+.booking-item label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #155e58;
+}
+
+.booking-item select,
+.booking-item input {
+    width: 100%;      /* penuh di dalam kotaknya */
+    box-sizing: border-box;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #cfe8e0;
+    background: #f9fefc;
+    transition: 0.25s;
+}
+.booking-item select {
+    width: 100%;
+    padding: 12px 20px 12px 14px; /* kanan 20px, kiri 14px */
+    border-radius: 12px;
+    border: 1px solid #cfe8e0;
+    background: #f9fefc;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23155e58" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+    transition: 0.25s;
+    -webkit-appearance: none;  
+    -moz-appearance: none;     
+    appearance: none;          
+}
+
+
+
+.booking-item select:focus,
+.booking-item input:focus {
+    outline: none;
+    border-color: #0f766e;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+}
+
+
+/* === UNIFORM DATE & TIME INPUT (MATCH SELECT PACKAGE) === */
+input[type="date"],
+input[type="time"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 100%;
+    padding: 14px 15px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #cfe8e0;
+    background: #f9fefc;
+    color: #1f3e39;
+    transition: 0.25s;
+    position: relative;
+}
+
+/* === Tambahkan icon custom (biar sama vibe-nya dengan select) === */
+input[type="date"] {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23155e58" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10h5v5H7z" opacity=".3"/><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+}
+
+input[type="time"] {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23155e58" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8v5l3 3m6-4a9 9 0 11-9-9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+}
+
+/* === Focus effect sama persis === */
+input[type="date"]:focus,
+input[type="time"]:focus {
+    outline: none;
+    border-color: #0f766e;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+}
+
+/* Placeholder uniform */
+input[type="date"]::placeholder,
+input[type="time"]::placeholder {
+    color: #8cb7ac;
+}

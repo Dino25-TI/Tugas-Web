@@ -1,0 +1,325 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f3faf7; /* hijau very soft */
+}
+
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.card h3 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #2e5d51;
+}
+
+/* Setiap baris dokter */
+.doc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 15px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #e5f2ed;
+    transition: 0.25s;
+}
+
+.doc:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    border-color: #cce8df;
+}
+
+/* Kiri */
+.doc-left strong {
+    font-size: 18px;
+    color: #244b43;
+}
+
+.small-muted {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #5f766e;
+}
+
+/* Kanan */
+.doc-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Status online/offline */
+.online-dot, .offline-dot {
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+}
+
+.online-dot {
+    background: #34c88a;
+}
+
+.offline-dot {
+    background: #d26b6b;
+}
+
+/* Tombol */
+.btn {
+    padding: 8px 16px;
+    background: #2fa885;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #249d78;
+}
+
+/* Header */
+/* Header keren & elegan */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+.header-bar {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 900px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-bar h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #ff3c7e; /* warna solid vibrant */
+    text-shadow: 2px 4px 12px rgba(255,60,126,0.3); /* subtle glow */
+    letter-spacing: 1.5px;
+    transform: translateY(-10px);
+    animation: slideIn 1s ease-out forwards;
+}
+
+.header-bar p {
+    font-size: 1.3rem;
+    color: #4b4b4b; /* fallback color */
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.8px;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
+    animation-delay: 0.8s;
+}
+
+/* Underline animasi ringan */
+.header-bar p::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff7eb9, #ff758c);
+    margin: 10px auto 0;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.header-bar p:hover::after {
+    transform: scaleX(1);
+}
+
+/* ANIMASI fadeUp */
+@keyframes fadeUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+
+/* Grid */
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Card */
+.doctor-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    transition: 0.25s ease;
+}
+.doctor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+}
+
+/* Photo Placeholder */
+.doc-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.doc-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: top;    /* geser gambar ke atas, wajah turun ke bawah */
+    margin-top: 5px; /* geser ke bawah 5px */
+
+}
+.doc-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;    
+}
+
+
+/* Info */
+.doc-info h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+.doc-title {
+    font-size: 14px;
+    color: #777;
+}
+.doc-rating {
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Status */
+.doc-status {
+    margin-top: 15px;
+}
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.status-badge.online {
+    background: #d4ffe2;
+    color: #0c9a3e;
+}
+.status-badge.offline {
+    background: #ffe0e0;
+    color: #c63c3c;
+}
+
+/* Action */
+.doc-actions {
+    margin-top: 20px;
+}
+.btn-profile {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #5a67d8;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.btn-profile:hover {
+    background: #434fb6;
+}
+
+/* CONTAINER TOMBOL KEMBALI */
+.back-btn-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* TOMBOL STYLISH */
+.btn-back {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #ff758c, #ff7eb9);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover efek modern */
+.btn-back::after {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-5px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.btn-back:hover::after {
+    transform: translateY(-50%) translateX(5px);
+    opacity: 1;
+}
+
+.btn-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #ff7eb9, #ff758c);
+}
+.btn-review {
+    background: #0f766e;
+    color: #eafff6;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: 120px; /* jarak dari tombol profil */
+    display: inline-block;
+    transition: 0.25s ease;
+    text-decoration: none;
+}
+
+.btn-review:hover {
+    background: #129082;
+    transform: translateY(-2px);
+}
