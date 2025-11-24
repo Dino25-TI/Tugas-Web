@@ -4,6 +4,13 @@ $config = require __DIR__.'/../includes/config.php';
 $base = $config['base_url'];
 session_start();
 
+if(!isset($_SESSION['user_id'])) { 
+    header("Location: {$base}/login.php"); 
+    exit; 
+}
+$user_id = $_SESSION['user_id'];
+
+// Ambil daftar dokter
 $stmt = $pdo->query("SELECT * FROM doctors ORDER BY rating DESC");
 $doctors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -14,7 +21,6 @@ $doctors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <title>Psikolog - RASA</title>
 <link rel="stylesheet" href="<?php echo $base; ?>/assets/doctor_style.css">
 </head>
-
 <body>
 
 <div class="header-bar">
@@ -25,48 +31,41 @@ $doctors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
 
  <div class="doctor-grid">
-  <?php foreach($doctors as $d): ?>
+<?php foreach($doctors as $d): ?>
     <div class="doctor-card">
-
-      <div class="doc-top">
-        <div class="doc-photo">
-            <img src="<?=$base?>/assets/images/doctors/<?=htmlspecialchars($d['photo'])?>" 
-              alt="<?=htmlspecialchars($d['display_name'])?>">
+        <div class="doc-top">
+            <div class="doc-photo">
+                <img src="<?=$base?>/assets/images/doctors/<?=htmlspecialchars($d['photo'])?>" 
+                     alt="<?=htmlspecialchars($d['display_name'])?>">
+            </div>
+            <div class="doc-info">
+                <h2><?= htmlspecialchars($d['display_name']); ?></h2>
+                <span class="doc-title"><?= htmlspecialchars($d['title']); ?></span>
+                <div class="doc-rating">⭐ <?= $d['rating']; ?>/5</div>
+            </div>
         </div>
 
-        <div class="doc-info">
-          <h2><?php echo htmlspecialchars($d['display_name']); ?></h2>
-          <span class="doc-title"><?php echo htmlspecialchars($d['title']); ?></span>
-          <div class="doc-rating">⭐ <?php echo $d['rating']; ?>/5</div>
+        <div class="doc-status">
+            <?php if($d['is_online']): ?>
+                <span class="status-badge online">● Online</span>
+            <?php else: ?>
+                <span class="status-badge offline">● Offline</span>
+            <?php endif; ?>
         </div>
-      </div>
 
-      <div class="doc-status">
-        <?php if($d['is_online']): ?>
-          <span class="status-badge online">● Online</span>
-        <?php else: ?>
-          <span class="status-badge offline">● Offline</span>
-        <?php endif; ?>
-      </div>
-
-      <div class="doc-actions">
         <div class="doc-actions">
-        <a class="btn-profile" href="<?php echo $base;?>/doctor.php?id=<?php echo $d['id']; ?>">Lihat Profil</a>
-        <a class="btn-review" href="<?php echo $base;?>/review.php?doctor_id=<?php echo $d['id']; ?>">Beri Review</a>
-</div>
-
-      </div>
-
+            <a class="btn-profile" href="<?= $base; ?>/doctor.php?id=<?= $d['id']; ?>">Lihat Profil</a>
+            <a class="btn-chat" href="<?= $base; ?>/chat.php?doctor_id=<?= $d['id']; ?>">Chat Dokter</a>
+        </div>
     </div>
-  <?php endforeach; ?>
+<?php endforeach; ?>
 </div>
 
- <!-- Tombol Kembali ke Beranda di bawah -->
-  <div class="back-btn-container">
-      <a href="<?php echo $base; ?>" class="btn-back">Kembali ke Beranda</a>
-  </div>
 
+<div class="back-btn-container">
+  <a href="<?= $base; ?>" class="btn-back">Kembali ke Beranda</a>
 </div>
 
+</div>
 </body>
 </html>

@@ -52,7 +52,6 @@ $historyBks = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="bk-action">
     <?php if(in_array($bk['status'], ['confirmed','paid'])): ?>
         <a class="btn" href="<?php echo $base;?>/session.php?booking_id=<?php echo $bk['id']; ?>">Masuk Ruang</a>
-        <a class="btn alt" href="<?php echo $base;?>/chat.php?booking_id=<?php echo $bk['id']; ?>">Chat Dokter</a>
     <?php else: ?>
         <span class="small-muted">Tunggu konfirmasi</span>
     <?php endif; ?>
