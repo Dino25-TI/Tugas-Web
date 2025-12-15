@@ -3,11 +3,18 @@ require_once __DIR__.'/../includes/db.php';
 $config = require __DIR__.'/../includes/config.php';
 $base = $config['base_url'];
 session_start();
+if (($_SESSION['role'] ?? '') === 'admin') {
+    header("Location: {$base}/admin/index.php");
+    exit;
+}
 
 $doctor_id = intval($_GET['doctor_id'] ?? 0);
 
 $stmt = $pdo->prepare("
-    SELECT r.rating, r.comment, u.full_name
+    SELECT r.rating,
+           r.comment,
+           r.show_profile,
+           u.full_name
     FROM reviews r
     LEFT JOIN users u ON u.id = r.user_id
     WHERE r.doctor_id = ?
@@ -28,9 +35,17 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <h2>Ulasan Dokter</h2>
   <?php if($reviews): ?>
     <?php foreach($reviews as $r): ?>
+      <?php
+        // kalau show_profile = 1 → pakai nama asli, kalau 0 → Anonim
+        if (!empty($r['show_profile']) && $r['show_profile'] == 1) {
+            $nama = htmlspecialchars($r['full_name']);
+        } else {
+            $nama = '';
+        }
+      ?>
       <div class="review">
         <p><?= htmlspecialchars($r['comment']); ?></p>
-        <div class="by">— <?= htmlspecialchars($r['full_name']); ?> (<?= $r['rating']; ?>/5)</div>
+        <div class="by">— <?= $nama; ?> (<?= (int)$r['rating']; ?>/5)</div>
       </div>
     <?php endforeach; ?>
   <?php else: ?>

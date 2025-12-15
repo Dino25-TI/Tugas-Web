@@ -4,6 +4,9 @@ body {
     padding: 0;
     background: #f3faf7;
     font-family: 'Poppins', sans-serif;
+    background: url('../assets/images/welcome.png') center center / cover no-repeat fixed;
+    min-height: 100vh;      /* jangan height:100vh supaya tetap bisa scroll */
+    overflow-y: auto;
 }
 
 .container {

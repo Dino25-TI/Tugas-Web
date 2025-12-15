@@ -275,3 +275,103 @@ input,select,textarea{
   color:#556b55;
   margin-top:40px;
 }
+.bk-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.bk-close-form {
+    margin: 0;
+}
+
+.bk-close-btn {
+    border: none;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 999px;
+    width: 22px;
+    height: 22px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.bk-close-btn:hover {
+    background: #fecaca;
+}
+
+/* hapus flex:1 supaya ukuran tombol seperti sebelumnya */
+.bk-actions-row .btn,
+.bk-actions-row .btn.alt {
+    flex: 0;
+}
+
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.toast {
+  min-width: 260px;
+  max-width: 360px;
+  background: #064e3b;
+  color: #e5f9f5;
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  animation: toast-slide-up 0.4s ease-out;
+}
+
+.toast-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.toast-text {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.toast-close {
+  border: none;
+  background: transparent;
+  color: #bbf7d0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@keyframes toast-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+

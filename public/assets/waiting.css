@@ -2,8 +2,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f3faf7, #e0f2f1);
+    background: url('../assets/images/wait.png') center center / cover no-repeat fixed;
     font-family: 'Poppins', sans-serif;
+    min-height: 100vh;     /* cukup min-height, jangan kunci tinggi */
+    overflow-y: auto;
 }
 
 .container {

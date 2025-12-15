@@ -1,0 +1,263 @@
+.doctor-detail-page {
+    padding: 24px 0 40px;
+    background: #f5f7fb;
+}
+
+.doctor-detail-main {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+}
+
+/* card kiri */
+.doctor-side-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 16px 20px;
+    box-shadow: 0 2px 6px rgba(15,23,42,0.08);
+    text-align: center;
+    max-height: 340px;      /* batasi tinggi card */
+    overflow: hidden;       /* bagian berlebih tidak kelihatan */
+}
+
+
+.side-photo img {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.side-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.side-title,
+.side-meta,
+.side-location {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 2px 0;
+}
+
+.side-actions {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-primary,
+.btn-outline {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #0d7aa3;
+    color: #fff;
+}
+
+.btn-outline {
+    border: 1px solid #0d7aa3;
+    color: #0d7aa3;
+    background: #fff;
+}
+
+/* panel kanan */
+.doctor-detail-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px 20px;
+    box-shadow: 0 2px 6px rgba(15,23,42,0.08);
+}
+
+.doctor-hero {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f5f5;      /* area abu muda di kiri-kanan/atas-bawah */
+    display: flex;
+    align-items: center;      /* pusatkan vertikal */
+    justify-content: center;  /* pusatkan horizontal */
+    height: 260px;            /* tinggi frame tetap (boleh 240–280) */
+}
+
+.doctor-hero img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;       /* diperbesar sampai penuh frame */
+    object-position: center;       /* seluruh wajah + baju masuk frame */
+}
+
+.doctor-section {
+    margin-top: 18px;
+}
+
+.doctor-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.doctor-section p {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* badge topik */
+.badge-topic {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    margin: 2px 6px 2px 0;
+}
+
+/* responsif */
+@media (max-width: 900px) {
+    .doctor-detail-main {
+        grid-template-columns: 1fr;
+    }
+}
+.doctor-bio-long p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #4b5563;
+    text-align: justify;
+    margin: 0;
+}
+.doctor-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 22px;      /* lebih tebal */
+    box-shadow: 0 1px 6px rgba(15,23,42,0.08);
+    min-height: 120px;       /* paksa kotak sedikit lebih tinggi */
+}
+
+
+.info-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.info-card p {
+    font-size: 13px;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* wadah badge topik */
+.topic-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* badge topik (boleh pakai yang sudah ada) */
+.badge-topic {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+}
+
+/* responsif */
+@media (max-width: 900px) {
+    .doctor-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.doctor-reviews {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px 10px;
+    box-shadow: 0 1px 4px rgba(15,23,42,0.06);
+}
+
+.review-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.review-item:first-of-type {
+    border-top: none;
+}
+
+.review-avatar span {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: #0d7aa3;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.review-body {
+    flex: 1;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.review-meta {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.review-text,
+.review-empty {
+    font-size: 13px;
+    color: #4b5563;
+    margin: 0;
+}
+.reviews-more-wrap {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-more-reviews {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #0d7aa3;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.btn-more-reviews:hover {
+    background: #0b6687;
+}

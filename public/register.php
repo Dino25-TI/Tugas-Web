@@ -3,7 +3,10 @@ require_once __DIR__.'/../includes/db.php';
 $config = require __DIR__.'/../includes/config.php';
 $base = $config['base_url'];
 session_start();
-
+if (($_SESSION['role'] ?? '') === 'admin') {
+    header("Location: {$base}/admin/index.php");
+    exit;
+}
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);

@@ -2,9 +2,11 @@
 body {
     margin: 0;
     padding: 0;
-    background: #e6f3f1;  /* soft teal background */
+    background: url('../assets/images/payment.png') center center / cover no-repeat fixed;
     font-family: 'Poppins', sans-serif;
     color: #1f3e39;
+    min-height:100vh;      /* cukup minimum, bukan height:100vh */
+    overflow-y:auto;
 }
 
 .container {

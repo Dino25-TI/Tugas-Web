@@ -1,0 +1,48 @@
+<svg width="700" height="320" viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b5f0e8"/>
+      <stop offset="100%" stop-color="#ffd0e3"/>
+    </linearGradient>
+    <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6aa6"/>
+      <stop offset="100%" stop-color="#ff2f78"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.22" />
+    </filter>
+  </defs>
+
+  <!-- kartu utama (lebih pendek, center) -->
+  <rect x="110" y="70" width="480" height="200" rx="38"
+        fill="url(#cardGrad)" filter="url(#cardShadow)"/>
+
+  <!-- inner glass -->
+  <rect x="124" y="84" width="452" height="172" rx="30"
+        fill="rgba(255,255,255,0.78)"/>
+
+  <!-- LOVE besar, tepat di tengah kartu -->
+  <path d="M350 230
+           C300 198 280 178 280 152
+           C280 130 295 114 317 114
+           C334 114 347 123 357 138
+           C367 123 380 114 397 114
+           C419 114 434 130 434 152
+           C434 178 414 198 364 230 Z"
+        fill="url(#heartGrad)"/>
+
+  <!-- border tipis di love -->
+  <path d="M350 230
+           C300 198 280 178 280 152
+           C280 130 295 114 317 114
+           C334 114 347 123 357 138
+           C367 123 380 114 397 114
+           C419 114 434 130 434 152
+           C434 178 414 198 364 230 Z"
+        fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+
+  <!-- ceklis -->
+  <path d="M338 165 L352 179 L376 155"
+        fill="none" stroke="#ffffff" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

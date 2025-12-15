@@ -2,6 +2,7 @@
 require_once __DIR__.'/../../includes/db.php';
 header('Content-Type: application/json');
 
+
 $data = json_decode(file_get_contents('php://input'), true);
 $room_id = $data['room_id'] ?? null;
 

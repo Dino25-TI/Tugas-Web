@@ -1,0 +1,579 @@
+/* ========== GLOBAL ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f3f4ff;
+  color: #0f172a;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== LAYOUT WRAPPER ========== */
+.doclayout {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 64px;            /* turun karena ada topbar fixed */
+}
+
+/* ========== TOPBAR ATAS ========== */
+.topbar-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 1px 0 rgba(15,23,42,0.06);
+  z-index: 40;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-menu {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 14px;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #7c3aed;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.brand-text {
+  font-weight: 600;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.topbar-spacer {
+  flex: 1;                      /* dorong .topbar-user ke kanan */
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #6366f1;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.topbar-user-name {
+  font-size: 14px;
+  color: #111827;
+}
+
+/* ========== SIDEBAR ========== */
+.doc-sidebar {
+  position: fixed;
+  top: 64px;                    /* di bawah topbar */
+  left: 0;
+  width: 80px;                  /* mode mini */
+  height: calc(100vh - 64px);
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(15, 23, 42, 0.06);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.25s ease;
+  z-index: 20;
+}
+
+.doc-sidebar.expand {
+  width: 230px;                 /* mode lebar */
+}
+
+.sidebar-logo {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 0 0 16px;
+}
+
+.doc-sidebar.expand .sidebar-logo {
+  display: flex;
+}
+
+/* MENU SIDEBAR */
+.doc-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.doc-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 40px;
+  border-radius: 0;
+  background: transparent;
+  color: #7c3aed;
+  font-size: 22px;
+  transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-menu a.active {
+  background: #ede9fe;
+  box-shadow: 0 10px 25px rgba(129, 140, 248, 0.35);
+  color: #4f46e5;
+}
+
+.doc-menu a .label {
+  display: none;
+  margin-left: 12px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.doc-sidebar.expand .doc-menu a {
+  justify-content: flex-start;
+  width: 190px;
+  padding: 0 18px;
+}
+
+.doc-sidebar.expand .doc-menu a .label {
+  display: inline-block;
+}
+
+/* ========== AREA KANAN (CONTENT) ========== */
+.doc-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 32px 28px;
+  margin-left: 80px;                    /* sama dengan width mini */
+  width: calc(100% - 80px);             /* lebar = layar - sidebar */
+  background: radial-gradient(circle at top left, #e0f2fe 0, #f3faf7 40%, #eef2ff 100%);
+  transition: margin-left 0.25s ease, width 0.25s ease;
+}
+
+.doc-sidebar.expand ~ .doc-main {
+  margin-left: 230px;
+  width: calc(100% - 230px);
+}
+
+/* container untuk header + 4 kartu */
+.doc-hero {
+  width: 100%;
+  max-width: 100%;               /* isi penuh doc-main */
+}
+
+/* ========== HEADER HIJAU DALAM MAIN ========== */
+.docdash-header {
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 14px;
+  padding: 20px 26px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow:
+    0 18px 40px rgba(79, 70, 229, 0.35),
+    0 0 0 1px rgba(191, 219, 254, 0.45);
+  overflow: hidden;
+  width: 100%;
+}
+
+.docdash-header::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,0.35) 0, transparent 55%),
+    radial-gradient(circle at 90% 120%, rgba(56,189,248,0.45) 0, transparent 60%);
+  opacity: 0.9;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.docdash-header > * {
+  position: relative;
+}
+
+.docdash-header h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.docdash-header p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+/* tombol logout kecil di header */
+.btn-logout {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 253, 250, 0.9);
+  background: rgba(15, 23, 42, 0.22);
+  color: #ecfdf5;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-logout:hover {
+  transform: translateY(-1px);
+  background: rgba(15, 23, 42, 0.32);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.6);
+}
+
+/* ========== STRIP STATISTIK ========== */
+.doc-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.stat-card {
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  box-shadow:
+    0 16px 32px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(226, 232, 240, 0.9);
+}
+
+.stat-card.purple  { background: #eef2ff; }
+.stat-card.green   { background: #ecfdf5; }
+.stat-card.blue    { background: #eff6ff; }
+.stat-card.orange  { background: #fff7ed; }
+
+.stat-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon-green  { background: #dcfce7; }
+.stat-icon-blue   { background: #dbeafe; }
+.stat-icon-orange { background: #ffedd5; }
+
+.stat-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.stat-value {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stat-pill {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+/* panel utama */
+.doc-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* satu kolom penuh */
+  gap: 18px;
+}
+
+.doc-panel {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  box-shadow:
+    0 16px 32px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(226, 232, 240, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.doc-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(239, 246, 255, 0.9) 0, transparent 55%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.doc-panel > * {
+  position: relative;
+}
+
+.doc-panel h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.doc-panel p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ========== LIST JADWAL ========== */
+.schedule-header {
+  display: grid;
+  grid-template-columns: 1.6fr 1.4fr 0.9fr 1fr 1.1fr;
+  gap: 8px;
+  padding: 6px 4px 8px;
+  font-size: 12px;
+  color: #9ca3af;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.schedule-list {
+  margin-top: 4px;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1.4fr 0.9fr 1fr 1.1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 4px;
+  font-size: 13px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.schedule-row:nth-child(even) {
+  background: #f9fafb;
+}
+
+.schedule-row:hover {
+  background: #eef2ff;
+}
+
+.col-patient .bk-name { font-weight: 500; color: #111827; }
+.col-date,
+.col-type { color: #4b5563; }
+.col-type { text-transform: capitalize; }
+.col-status {
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f766e;
+}
+.col-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-start;
+}
+
+.tag-link {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.tag-link:hover {
+  background: #e0e7ff;
+}
+
+.bk-actions-full {
+  margin: 4px 0 10px;
+  padding: 0 4px 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ========== BUTTON & INPUT SESSION ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: #ecfdf5;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.4);
+  filter: brightness(1.03);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #0f766e;
+  background: transparent;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-outline:hover {
+  background: #d1fae5;
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.25);
+}
+
+.meet-input {
+  width: 100%;
+  max-width: 260px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 12px;
+  background: #f9fafb;
+  margin-bottom: 4px;
+}
+
+/* ========== HISTORY LIST ========== */
+.history-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.history-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.history-list strong { color: #111827; }
+.history-list span   { color: #6b7280; font-size: 12px; }
+
+.history-list a {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #0f766e;
+}
+
+/* ========== TOAST ========== */
+.toast-success,
+.toast-info {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-width: 260px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+  z-index: 9999;
+}
+
+.toast-success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.toast-info {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .doc-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .doc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .doc-sidebar {
+    display: none;
+  }
+  .doc-main {
+    margin-left: 0;
+    padding: 16px 14px 24px;
+  }
+}
